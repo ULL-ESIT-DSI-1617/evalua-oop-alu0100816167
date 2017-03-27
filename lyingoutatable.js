@@ -12,7 +12,7 @@ Array.prototype.range = function(block) {
     r.push(block(i));
   }
   return r;
-} 
+}
 // End Utils
 
 // TextCell Class
@@ -24,7 +24,7 @@ function TextCell(text) {
   (in characters).
 */
 TextCell.prototype.minWidth = function() {
-  /* 
+  /*
     The reduce() method applies a function against an accumulator and
     each element in the array (from left to right) to reduce it to a
     single value.
@@ -52,7 +52,7 @@ TextCell.prototype.draw = function(width, height) {
     result.push(line + " ".repeat(width - line.length));
   }
   return result;
-};    
+};
 
 // End TextCell
 
@@ -83,8 +83,8 @@ UnderlinedCell.prototype.minHeight = function() {
 UnderlinedCell.prototype.draw = function(width, height) {
   return this.inner.draw(width, height - 1)
     .concat(["-".repeat(width)]);
-};    
-// End UnderlinedCell    
+};
+// End UnderlinedCell
 
 // RTextCell
 function RTextCell(text) {
@@ -99,7 +99,7 @@ RTextCell.prototype.draw = function(width, height) {
   }
   return result;
 };
-// End RTextCell    
+// End RTextCell
 
 //---------------------------------------------
 /*
@@ -123,7 +123,7 @@ function colWidths(rows) {
     }, 0);
   });
 }
-    
+
 function dataTable(data) {
   var keys = Object.keys(data[0]);
   var headers = keys.map(function(name) {
@@ -162,8 +162,8 @@ function drawTable(rows) {
   }
 
   return rows.map(drawRow).join("\n");
-}    
-    
+}
+
 function drawIt(data) {
   return drawTable(dataTable(data));
 }
@@ -175,6 +175,3 @@ module.exports = {
   RTextCell: RTextCell,
   UnderlinedCell: UnderlinedCell
 };
-
-    
-   
